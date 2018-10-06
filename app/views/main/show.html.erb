@@ -1,0 +1,243 @@
+	<div id="wrapper"><!-- start main wrapper -->
+		<div class="job-finder"><!-- start job finder -->
+			<div class="container">
+				<h3>Job Listing</h3>
+					<%= form_for(:searchkey, url: 'gosearch') do |f| %>
+						<div class="col-md-7 form-group group-1">
+							<%= f.label "Search"%>
+							<%= f.text_field :jobtitle, class: "input-job", placeholder: "Keywords (IT Engineer, Shop Manager, Hr Manager...)" %>
+						</div>
+
+						<div class="col-md-5 form-group group-2">
+							<%= f.label "Location" %>
+							<%= f.text_field :joblocation, class: "input-location", placeholder: "New York, Hong Kong, New Delhi, Berlin etc." %>
+						</div>
+
+						<%= f.submit "SEARCH", class: "btn btn-default btn-green" %>
+					<% end %>
+					<div class="form-group">
+						<label for="experiences" class="label clearfix">Experiences(-/+)</label>
+						<input id="experiences" class="value-slider" type="text" name="area" value="1;1" />
+					</div>
+					<div class="clearfix"></div>
+					<br/>
+					<div class="form-group">
+						<label for="salary" class="label clearfix">Salary ($)/per year</label>
+						<input id="salary" class="value-slider" type="text" name="area" value="0;0" />
+					</div>
+			</div>
+		</div><!-- end job finder -->
+		<div class="recent-job"><!-- Start Job -->
+			<div class="container">
+				<h4><i class="glyphicon glyphicon-briefcase"></i> JOBS</h4>
+				<div id="tab-container" class='tab-container'><!-- Start Tabs -->
+					<ul class='etabs clearfix'>
+						<li class='tab'><a href="#all">All</a></li>
+						<li class='tab'><a href="#contract">Contract</a></li>
+						<li class='tab'><a href="#full">Full Time</a></li>
+						<li class='tab'><a href="#part">Part Time</a></li>
+					</ul>
+
+					<div class='panel-container'>
+						<div id="all"><!-- Tabs section 1 -->
+							<% @projects.each do |projects| %>
+								<div class="recent-job-list"><!-- Tabs content -->
+									<div class="col-md-1 job-list-logo">
+										<%= image_tag "upload/dummy-job-open-2.png", class: "img-responsive" %>
+									</div>
+									<div class="col-md-5 job-list-desc">
+										<h6><%= projects.jobtitle %></h6>
+										<p><%= projects.description %></p>
+									</div>
+									<div class="col-md-3 job-list-location">
+										<h6><i class="fa fa-map-marker"></i><%= projects.joblocation %></h6>
+									</div>
+									<div class="col-md-3">
+										<div class="row">
+											<div class="col-md-7 job-list-type">
+												<h6><i class="fa fa-user"></i><%= projects.jobtype %></h6>
+											</div>
+											<div class="col-md-5 job-list-type">
+												<%= link_to "View", edit_postjob_path(projects), class: "btn-view-job" %>
+											</div>
+										</div>
+									</div>
+									<div class="clearfix"></div>
+								</div><!-- Tabs content -->
+							<% end %>
+						</div><!-- Tabs section 1 -->
+						<div id="contract"><!-- Tabs section 2 -->
+
+						</div><!-- Tabs section 2 -->
+						<div id="full"><!-- Tabs section 3 -->
+							<% @projects_full_time.each do |projects| %>
+								<div class="recent-job-list"><!-- Tabs content -->
+									<div class="col-md-1 job-list-logo">
+										<%= image_tag "upload/dummy-job-open-2.png", class: "img-responsive" %>
+									</div>
+									<div class="col-md-5 job-list-desc">
+										<h6><%= projects.jobtitle %></h6>
+										<p><%= projects.description %></p>
+									</div>
+									<div class="col-md-3 job-list-location">
+										<h6><i class="fa fa-map-marker"></i><%= projects.joblocation %></h6>
+									</div>
+									<div class="col-md-3">
+										<div class="row">
+											<div class="col-md-7 job-list-type">
+												<h6><i class="fa fa-user"></i><%= projects.jobtype %></h6>
+											</div>
+											<div class="col-md-5 job-list-type">
+												<!-- <button class="btn-view-job" ><a href="job-detail.html">View Job</a></button> -->
+												<%= link_to "View", edit_postjob_path(projects), class: "btn-view-job" %>
+											</div>
+										</div>
+									</div>
+									<div class="clearfix"></div>
+								</div><!-- Tabs content -->
+							<% end %>
+						</div><!-- Tabs section 3 -->
+						<div id="part"><!-- Tabs section 4 -->
+							<% @projects_part_time.each do |projects| %>
+								<div class="recent-job-list"><!-- Tabs content -->
+									<div class="col-md-1 job-list-logo">
+										<%= image_tag "upload/dummy-job-open-2.png", class: "img-responsive" %>
+									</div>
+									<div class="col-md-5 job-list-desc">
+										<h6><%= projects.jobtitle %></h6>
+										<p><%= projects.description %></p>
+									</div>
+									<div class="col-md-3 job-list-location">
+										<h6><i class="fa fa-map-marker"></i><%= projects.joblocation %></h6>
+									</div>
+									<div class="col-md-3">
+										<div class="row">
+											<div class="col-md-7 job-list-type">
+												<h6><i class="fa fa-user"></i><%= projects.jobtype %></h6>
+											</div>
+											<div class="col-md-5 job-list-type">
+												<!-- <button class="btn-view-job" ><a href="job-detail.html">View Job</a></button> -->
+												<%= link_to "View", edit_postjob_path(projects), class: "btn-view-job" %>
+											</div>
+										</div>
+									</div>
+									<div class="clearfix"></div>
+								</div><!-- Tabs content -->
+							<% end %>
+						</div><!-- Tabs section 4 -->
+					</div>
+				</div><!-- end Tabs -->
+
+				<div id="job-opening">
+					<div class="job-opening-top"><!-- job opening carousel nav -->
+						<div class="job-oppening-title">TOP JOB OPENING</div>
+						<div class="job-opening-nav">
+							<a class="btn prev"></a>
+							<a class="btn next"></a>
+							<div class="clearfix"></div>
+						</div>
+					</div><!-- job opening carousel nav -->
+					<div class="clearfix"></div>
+					<br/>
+					<div id="job-listing-carousel" class="owl-carousel"><!-- job opening carousel item -->
+						<div class="item-listing">
+							<div class="job-opening">
+								<%= image_tag "Ruby-Universe.png", class: "img-responsive" %>
+								<div class="job-opening-content">
+									HR Manager
+									<p>
+										Place for worlds best shipping company and work with great level efficiency to break trough in new career.
+									</p>
+								</div>
+								<div class="job-opening-meta clearfix">
+									<div class="meta-job-location meta-block"><i class="fa fa-map-marker"></i>San Fransisco</div>
+									<div class="meta-job-type meta-block"><i class="fa fa-user"></i>Full Time</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="item-listing">
+							<div class="job-opening">
+								<%= image_tag "Ruby-Universe.png", class: "img-responsive" %>
+								<div class="job-opening-content">
+									HR Manager
+									<p>
+										Place for worlds best shipping company and work with great level efficiency to break trough in new career.
+									</p>
+								</div>
+								<div class="job-opening-meta clearfix">
+									<div class="meta-job-location meta-block"><i class="fa fa-map-marker"></i>San Fransisco</div>
+									<div class="meta-job-type meta-block"><i class="fa fa-user"></i>Full Time</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="item-listing">
+							<div class="job-opening">
+								<%= image_tag "Ruby-Universe.png", class: "img-responsive" %>
+								<div class="job-opening-content">
+									HR Manager
+									<p>
+										Place for worlds best shipping company and work with great level efficiency to break trough in new career.
+									</p>
+								</div>
+								<div class="job-opening-meta clearfix">
+									<div class="meta-job-location meta-block"><i class="fa fa-map-marker"></i>San Fransisco</div>
+									<div class="meta-job-type meta-block"><i class="fa fa-user"></i>Full Time</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="item-listing">
+							<div class="job-opening">
+								<%= image_tag "Ruby-Universe.png", class: "img-responsive" %>
+								<div class="job-opening-content">
+									HR Manager
+									<p>
+										Place for worlds best shipping company and work with great level efficiency to break trough in new career.
+									</p>
+								</div>
+								<div class="job-opening-meta clearfix">
+									<div class="meta-job-location meta-block"><i class="fa fa-map-marker"></i>San Fransisco</div>
+									<div class="meta-job-type meta-block"><i class="fa fa-user"></i>Full Time</div>
+								</div>
+							</div>
+						</div>
+					</div><!-- job opening carousel item -->
+				</div>
+			</div>
+		</div><!-- end Job -->
+
+		<div id="page-content"><!-- start content -->
+			<div class="content-about">
+			<div class="spacer-2">&nbsp;</div>
+				<div class="row clearfix">
+					<div class="col-md-6 about-post-resume">
+						<h4>Post Your Resume</h4>
+						<% if session[:user_id] %>
+							<p>
+								<%= link_to "UPLOAD YOUR RESUME", postresume_path(1), class: "btn btn-default btn-black" %>
+							</p>
+						<% end %>
+					</div>
+					<div class="col-md-6 about-post-resume">
+						<h4>Post Job Now</h4>
+						<% if session[:user_id] %>
+							<p>
+								<%= link_to "POST A JOB NOW", postjob_path(1), class: "btn btn-default btn-black"%>
+							</p>
+						<% end %>
+					</div>
+				</div>
+				<div class="spacer-2">&nbsp;</div>
+
+				<div id="cs"><!-- CS -->
+					<div class="container">
+					<div class="spacer-1">&nbsp;</div>
+						<h1>Hey Friends Any Quries?</h1>
+						<h1 class="phone-cs">Call: 1 800 000 500</h1>
+					</div>
+				</div><!-- CS -->
+			</div><!-- end content -->
+		</div><!-- end page content -->
+	</div>

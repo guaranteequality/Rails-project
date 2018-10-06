@@ -1,0 +1,41 @@
+<div id="header"><!-- start main header -->
+	<div class="top-line">&nbsp;</div>
+	<div class="top"><!-- top -->
+		<div class="container">
+			<div class="media-top-right">
+				<ul class="media-top clearfix">
+					<li class="item"><a href="" target="blank"><i class="fa fa-twitter"></i></a></li>
+					<li class="item"><a href="" target="blank"><i class="fa fa-facebook"></i></a></li>
+					<li class="item"><a href="" target="blank"><i class="fa fa-linkedin"></i></a></li>
+					<li class="item"><a href="" target="blank"><i class="fa fa-rss"></i></a></li>
+					<li class="item"><a href="" target="blank"><i class="fa fa-google-plus"></i></a></li>
+				</ul>
+				<ul class="media-top-2 clearfix">
+					<%= link_to "REGISTER", 'signup', class: "btn btn-default btn-blue btn-sm" %>
+					<%= link_to "LOG IN", 'headerlogin', class: "btn btn-default btn-green btn-sm" %>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div><!-- top -->
+	<div class="container"><!-- container -->
+		<div class="row">
+			<div class="col-md-4"><!-- logo -->
+				<a href="pic-main" title="Job Board" rel="home">
+					<%= image_tag "logo.png", class: "main-logo" %>
+				</a>
+			</div><!-- logo -->
+			<div class="col-md-8 main-nav"><!-- Main Navigation -->
+				<a id="touch-menu" class="mobile-menu" href="#"><i class="fa fa-bars fa-2x"></i></a>
+				<nav>
+					<ul class="menu">
+						<li><%= link_to "HOME", main_path(1) %></li>
+						<li><%= link_to "POST A JOB", postjob_path(1) %></li>
+						<li><%= link_to "POST A RESUME", postresume_path(1) %></li>
+					</ul>
+				</nav>
+			</div><!-- Main Navigation -->
+			<div class="clearfix"></div>
+		</div>
+	</div><!-- container -->
+</div><!-- end main header -->

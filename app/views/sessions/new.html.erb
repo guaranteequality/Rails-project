@@ -1,0 +1,65 @@
+<div id="wrapper"><!-- start main wrapper -->
+	<div class="main-page-title"><!-- start main page title -->
+		<div class="container">
+			<h4 class="login-title">Log In</h4>
+			<div class="row">
+				<div class="col-md-5">
+					<div class="form-singin-container">
+					    <%= form_for(:session, url: login_path ) do |f| %>
+							<div class="form-group">
+								<%= f.label :email %>
+								<%= f.text_field :email, class: "form-control input-form" %>
+								<div class="register-aksen"></div>
+							</div>
+
+							<div class="form-group">
+								<%= f.label :password %>
+								<%= f.password_field :password, class: "form-control input-form" %>
+								<div class="register-aksen"></div>
+								<%= f.submit "Log In", class: "btn btn-default btn-green" %>
+							</div>
+						<% end %>
+					</div>
+				</div>
+
+				<div class="col-md-7 singin-page">
+					<h5>Not A Member? Register Now</h5>
+					<%= link_to "REGISTER", 'log-reg', class: "btn btn-default btn-blue" %>
+				</div>
+			</div>
+		</div>
+	</div><!-- end main page title -->
+
+	<div id="page-content"><!-- start content -->
+		<div class="content-about">
+		<div class="spacer-2">&nbsp;</div>
+			<div class="row clearfix">
+				<div class="col-md-6 about-post-resume">
+					<h4>Post Your Resume</h4>
+					<% if session[:user_id] %>
+						<p>
+							<%= link_to "UPLOAD YOUR RESUME", 'postresumesuccess', class: "btn btn-default btn-black" %>
+						</p>
+					<% end %>
+				</div>
+				<div class="col-md-6 about-post-resume">
+					<h4>Post Job Now</h4>
+					<% if session[:user_id] %>
+						<p>
+							<%= link_to "POST A JOB NOW", 'postjobsuccess', class: "btn btn-default btn-black"%>
+						</p>
+					<% end %>
+				</div>
+			</div>
+			<div class="spacer-2">&nbsp;</div>
+
+			<div id="cs"><!-- CS -->
+				<div class="container">
+				<div class="spacer-1">&nbsp;</div>
+					<h1>Hey Friends Any Quries?</h1>
+					<h1 class="phone-cs">Call: 1 800 000 500</h1>
+				</div>
+			</div><!-- CS -->
+		</div><!-- end content -->
+	</div><!-- end page content -->
+</div><!-- end main wrapper -->

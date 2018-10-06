@@ -1,0 +1,2 @@
+class PostaResume < ApplicationRecord
+end

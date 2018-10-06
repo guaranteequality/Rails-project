@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  youremail: MyString
+  jobtitle: 
+  jobregion: MyString
+  jobtype: MyString
+  jobcategory: MyString
+  jobtags: MyString
+  applicationemailurl: MyString
+  closingdata: MyString
+  companyname: MyString
+  companydescription: MyString
+  twitterusername: MyString
+  website: MyString
+  googleusername: MyString
+  facebookusername: MyString
+  linkedinusername: MyString
+
+two:
+  youremail: MyString
+  jobtitle: 
+  jobregion: MyString
+  jobtype: MyString
+  jobcategory: MyString
+  jobtags: MyString
+  applicationemailurl: MyString
+  closingdata: MyString
+  companyname: MyString
+  companydescription: MyString
+  twitterusername: MyString
+  website: MyString
+  googleusername: MyString
+  facebookusername: MyString
+  linkedinusername: MyString
